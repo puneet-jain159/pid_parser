@@ -1,0 +1,54 @@
+{
+  "project": {
+    "project_root": "/Workspace/Users/your_username@your_domain.com/pid_parser"
+  },
+  "models": {
+    "claude_fmapi_model": "databricks-claude-sonnet-4-5",
+    "layout_model": "databricks-claude-3-7-sonnet",
+    "judge_model": "databricks-claude-sonnet-4-5"
+  },
+  "mlflow": {
+    "tracking_uri": "databricks",
+    "experiment_name_ocr": "/Users/your_username@your_domain.com/Engineering_Drawing_OCR",
+    "experiment_name_evaluation": "/Users/your_username@your_domain.com/Engineering_Drawing_OCR_Evaluation",
+    "ocr_experiment_name": "/Users/your_username@your_domain.com/Engineering_Drawing_OCR",
+    "ocr_run_id": "c7107b55055f439db1818d8dec323dac",
+    "run_name": "engineering_drawing_batch_ocr"
+  },
+  "ocr_pipeline": {
+    "input_folder": "/Workspace/Users/your_username@your_domain.com/mini_drawings",
+    "output_dir": "/Workspace/Users/your_username@your_domain.com/crops",
+    "delta_table": {
+      "table_name": "engineering_drawing_metadata",
+      "catalog": "demo_catalog",
+      "schema": "habshanp5mdr"
+    },
+    "processing": {
+      "dpi": 400,
+      "force_rotation": null
+    },
+    "test_files": {
+      "test_pdf": "/Workspace/Users/your_username@your_domain.com/30001-50150H-HB-212-19-00-302_0.pdf",
+      "test_output": "/Workspace/Users/your_username@your_domain.com/test_crop.png"
+    }
+  },
+  "evaluation": {
+    "predictions": {
+      "catalog": "demo_catalog",
+      "schema": "habshanp5mdr",
+      "table": "engineering_drawing_metadata"
+    },
+    "ground_truth_file": "/Workspace/Users/your_username@your_domain.com/Labelled Evaluation Data_11-12-25.xlsx - New Samples.csv",
+    "pdf_folder": "/Workspace/Users/your_username@your_domain.com/drawings",
+    "fields_to_evaluate": [
+      "drawing_title",
+      "agnoc_gas_dwg_no",
+      "unit",
+      "plant",
+      "latest_rev",
+      "latest_rev_date",
+      "latest_rev_description"
+    ]
+  }
+}
+
